@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Civic Shield – Login</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="scene">
+
+  <div class="card" id="card">
+
+    <!-- FRONT : USER LOGIN -->
+    <div class="card-face card-front">
+      <div class="avatar"></div>
+      <h2>User Login</h2>
+
+      <input type="text" id="userId" placeholder="User ID">
+      <input type="password" id="userPassword" placeholder="Password">
+
+      <button>LOGIN</button>
+
+      <div class="links">
+        <span onclick="flipAdmin()">Admin Login</span>
+        <span onclick="showSignup()">Sign Up</span>
+      </div>
+    </div>
+
+    <!-- BACK : ADMIN LOGIN -->
+    <div class="card-face card-back">
+      <div class="avatar admin"></div>
+      <h2>Admin Login</h2>
+
+      <!-- ✅ FIX: IDs ADDED -->
+      <input type="email" id="adminEmail" placeholder="Admin Email">
+      <input type="password" id="adminPassword" placeholder="Password">
+
+      <!-- ✅ FIX: onclick ADDED -->
+      <button class="admin-btn" onclick="adminLogin()">LOGIN</button>
+
+      <div class="links">
+        <span onclick="flipUser()">← User Login</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIGNUP CARD -->
+  <div class="signup" id="signup">
+    <h2>Sign Up</h2>
+
+    <input type="text" id="signupName" placeholder="Full Name">
+    <input type="email" id="signupEmail" placeholder="Email">
+    <input type="password" id="signupPassword" placeholder="Password">
+
+    <button>CREATE ACCOUNT</button>
+
+    <div class="links">
+      <span onclick="backToLogin()">← Back to Login</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ✅ IMPORTANT: JS AT END -->
+<script src="auth.js"></script>
+</body>
+</html>

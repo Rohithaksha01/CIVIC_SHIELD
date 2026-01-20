@@ -1,0 +1,290 @@
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --text: #1f1f1f;
+  --nav: #fff;
+  --accent: #ff9933;
+}
+
+/* ===== DARK MODE ===== */
+html.dark {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --text: #e0e0e0;
+  --nav: #000000;
+  --accent: #ff9933;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== OFFLINE BAR (GOVT UX) ===== */
+.offline-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  background: linear-gradient(90deg, #b71c1c, #8e0000);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+
+  z-index: 9999;
+}
+
+/* Text */
+.offline-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Retry button */
+.offline-retry {
+  background: #fff;
+  color: #b71c1c;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.offline-retry:hover {
+  background: #ffecec;
+}
+
+/* Push page down when visible */
+body.offline {
+  padding-top: 44px;
+}
+
+/* ===== OFFLINE BAR BUTTON FIX ===== */
+.offline-bar button,
+.offline-retry {
+  width: auto !important;
+  padding: 6px 16px !important;
+  font-size: 13px !important;
+  border-radius: 999px !important;
+
+  background: #ffffff !important;
+  color: #b71c1c !important;
+
+  box-shadow: none !important;
+}
+
+
+/* ===== NAVBAR ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: var(--nav);
+}
+
+.nav-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: 'Courier New';;
+}
+
+.logo {
+  width: 44px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4px;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg,#ff9933,#2f71db,#2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .brand-text {
+  background: linear-gradient(90deg,#ff9933,#ffffff,#09ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .nav-link {
+  color: #fff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active {
+  color: var(--accent);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  width: 50px;
+  height: 26px;
+  border-radius: 999px;
+  background: #d6d6d6;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  transition: 0.3s;
+}
+
+html.dark .toggle-thumb {
+  transform: translateX(24px);
+  background: var(--accent);
+}
+
+/* ===== CENTERING (SAME AS WELFARE) ===== */
+.page-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CARD (IDENTICAL TO WELFARE) ===== */
+.welfare-box {
+  width: 380px;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.welfare-box h2 {
+  margin-bottom: 22px;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.status {
+  margin-top: 16px;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .8s forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welfare-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(255,153,51,.35);
+  transition: 0.3s;
+}
+
+
+/* FOOTER */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px;
+  font-size: 13px;
+  background: #f0f0f0;
+  color: #0b3c5d;
+}
+
+html.dark footer {
+  background: #000;
+  color: #fff;
+}

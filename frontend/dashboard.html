@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+
+  <title>Civic Shield – National Governance Dashboard</title>
+
+
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    (function () {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- ===== OFFLINE STATUS BAR ===== -->
+  <div id="offlineBar" class="offline-bar">
+    <span>⚠ You’re offline. Some features may not work.</span>
+    <button onclick="retryConnection()">Retry</button>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-left">
+      <img src="assets/cs3.png" class="logo">
+      <span class="brand-text">CIVIC<br>SHIELD</span>
+      <span id="liveIndicator" class="live-indicator offline">● OFFLINE</span>
+
+
+    </div>
+
+    <div class="nav-right">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="welfare.html" class="nav-link">Welfare</a>
+      <a href="voting.html" class="nav-link">Voting</a>
+
+
+      <!-- 🔔 Notifications -->
+      <div class="notification-wrapper">
+        <span id="notifyBell" class="notify-bell">🔔</span>
+        <span id="notifyCount" class="notify-count">0</span>
+
+        <div id="notifyPanel" class="notify-panel">
+          <h4>Notifications</h4>
+          <ul id="notifyList"></ul>
+        </div>
+      </div>
+
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb"></span>
+      </button>
+    </div>
+
+  </nav>
+
+
+  <div id="errorBanner" class="error-banner">
+    <span>⚠ Server unreachable. Try again later.</span>
+    <button onclick="retryLastAction()">Retry</button>
+  </div>
+
+
+
+
+  <!-- ===== GLOBAL SEARCH ===== -->
+  <div class="global-search fade-in">
+    <input type="text" id="globalSearchInput" placeholder="Search Ration Card / Voter ID / Citizen ID"
+      autocomplete="off" />
+    <span id="searchType" class="search-type">Auto Detect</span>
+  </div>
+
+
+
+  <!-- ===== HERO SLIDER ===== -->
+  <section class="banner">
+    <div class="slider">
+
+      <div class="slides active">
+        <img src="assets/slide1.jpg">
+      </div>
+      <div class="slides">
+        <img src="assets/slide2.jpg">
+      </div>
+      <div class="slides">
+        <img src="assets/slide3.jpg">
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="hero-text">
+        <h1>Civic Shield</h1>
+        <p>National Digital Governance & Integrity Platform</p>
+      </div>
+
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<!--div class="verify-box fade-in">
+
+  <!-- STEP 1: AADHAAR INPUT ->
+  <div class="verify-step active" id="stepAadhaar">
+    <h3>🪪 Aadhaar Verification</h3>
+
+    <label>Aadhaar Number</label>
+    <input
+      type="text"
+      id="aadhaarInput"
+      maxlength="12"
+      placeholder="Enter 12-digit Aadhaar"
+    />
+
+    <div id="aadhaarMasked" class="aadhaar-mask hidden"></div>
+
+    <p class="helper-text">
+      OTP will be sent to the mobile number linked with Aadhaar
+    </p>
+
+    <button onclick="sendOTP()">Send OTP</button>
+  </div>
+
+  <!-- STEP 2: OTP ->
+  <div class="verify-step" id="stepOTP">
+    <h3>📩 OTP Verification</h3>
+    <p>Enter the 6-digit OTP sent to your Aadhaar-linked mobile</p>
+
+    <div class="otp-inputs">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+      <input maxlength="1">
+    </div>
+
+    <button onclick="goToBiometric()">Verify OTP</button>
+  </div>
+
+  <!-- STEP 3: BIOMETRIC ->
+  <div class="verify-step" id="stepBio">
+    <h3>🧬 Biometric Verification</h3>
+
+    <div class="bio-placeholder">
+      <span>👆</span>
+      <p>Fingerprint / Face Authentication</p>
+    </div>
+
+    <button onclick="finishVerification()">Complete Verification</button>
+  </div>
+
+</div-->
+
+
+
+
+
+
+  <h2 class="page-title">National Governance Dashboard</h2>
+
+  <!-- ===== STATS ===== -->
+  <div class="stats-grid">
+    <div class="stat-card fade-in">
+      <p>👥 Total Citizens</p>
+      <h3 id="citizens">0</h3>
+    </div>
+    <div class="stat-card fade-in">
+      <p>🎯 Welfare Issued</p>
+      <h3 id="welfare">0</h3>
+    </div>
+    <div class="stat-card fade-in">
+      <p>🗳 Votes Cast</p>
+      <h3 id="votes">0</h3>
+    </div>
+    <div class="stat-card fade-in">
+      <p>⚠ Fraud Alerts</p>
+      <h3 id="frauds">0</h3>
+    </div>
+  </div>
+
+  <!-- ===== CHARTS ===== -->
+  <div class="charts-row">
+    <div class="chart-box fade-in">
+      <h4>Welfare Distribution (Weekly)</h4>
+      <canvas id="welfareChart"></canvas>
+    </div>
+
+    <div class="chart-box fade-in">
+      <h4>Voting Participation</h4>
+      <canvas id="voteChart"></canvas>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-box fade-in">
+      <h4>Votes Cast (Hourly)</h4>
+      <canvas id="votesChart"></canvas>
+    </div>
+
+    <div class="chart-box fade-in">
+      <h4>Fraud Alerts Breakdown</h4>
+      <canvas id="fraudChart"></canvas>
+    </div>
+  </div>
+
+  <!-- ===== SYSTEM HEALTH ===== -->
+  <div class="health-panel fade-in">
+    <h3>System Health</h3>
+
+    <div class="health-grid">
+      <div class="health-item">
+        <div class="health-left">
+          <span class="dot green"></span>
+          API Status
+        </div>
+        <strong id="apiStatus">Online</strong>
+      </div>
+
+      <div class="health-item">
+        <span class="dot green"></span>
+        Database <strong id="dbStatus">Connected</strong>
+      </div>
+      <div class="health-item">
+        <span class="dot yellow"></span>
+        Server Load <strong id="serverLoad">--%</strong>
+      </div>
+      <div class="health-item">
+        <span class="dot blue"></span>
+        Last Sync <strong id="lastSync">--</strong>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== FRAUD DETECTION INDICATORS ===== -->
+  <div class="health-panel fade-in">
+    <h3>🚨 Fraud Detection Indicators</h3>
+
+    <div class="health-grid">
+      <div class="health-item fraud low">
+        <span class="dot green"></span>
+        Multiple Voting Attempts
+        <strong>Low</strong>
+      </div>
+
+      <div class="health-item fraud medium">
+        <span class="dot yellow"></span>
+        Duplicate Welfare Claims
+        <strong>Medium</strong>
+      </div>
+
+      <div class="health-item fraud high">
+        <span class="dot red"></span>
+        Suspicious Identity Usage
+        <strong>High</strong>
+      </div>
+
+      <div class="health-item fraud low">
+        <span class="dot green"></span>
+        System Integrity
+        <strong>Stable</strong>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    © <span id="year"></span> Government of India | Civic Shield Platform<br>
+    <small>Integrity • Transparency • Democracy</small>
+  </footer>
+  <script src="auth.js"></script>
+  <script src="audit.js"></script>
+  <script src="network.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="toast.js"></script>
+  <script>
+    checkPageAccess();
+  </script>
+
+
+  <script>
+    addAuditLog("PAGE_ACCESS", "Page viewed");
+  </script>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+
+</body>
+
+</html>

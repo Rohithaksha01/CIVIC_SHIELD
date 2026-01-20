@@ -1,0 +1,357 @@
+:root{
+  --bg:#f4f6f9;
+  --card:#ffffff;
+  --text:#1e1e1e;
+  --nav:#ffffff;
+  --accent:#ff9933;
+}
+
+html.dark{
+  --bg:#0b0b0b;
+  --card:rgba(255,255,255,.07);
+  --text:#eaeaea;
+  --nav:#000;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ===== OFFLINE BAR ===== */
+.offline-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 18px;
+
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #b71c1c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+
+  z-index: 9999;
+}
+
+.offline-bar button {
+  background: #fff;
+  color: #b71c1c;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.offline-bar button:hover {
+  opacity: 0.9;
+}
+
+/* Push content down when offline bar visible */
+body.offline {
+  padding-top: 48px;
+}
+
+
+/* NAV */
+/* ===== NAVBAR ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: var(--nav);
+}
+
+.nav-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: 'Courier New';;
+}
+
+.logo {
+  width: 44px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 4px;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg,#ff9933,#2f71db,#2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .brand-text {
+  background: linear-gradient(90deg,#ff9933,#ffffff,#09ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .nav-link {
+  color: #fff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active {
+  color: var(--accent);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+  width: 50px;
+  height: 26px;
+  border-radius: 999px;
+  background: #d6d6d6;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  transition: 0.3s;
+}
+
+html.dark .toggle-thumb {
+  transform: translateX(24px);
+  background: var(--accent);
+}
+
+
+/* ===== MAIN CONTENT ===== */
+.page-content{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ===== WELFARE CARD ===== */
+.welfare-card{
+  width:420px;
+  background:var(--card);
+  padding:48px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+  transition:.3s;
+}
+
+.welfare-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(255,153,51,.35);
+}
+
+.welfare-card h2{
+  margin-bottom:26px;
+}
+
+.welfare-card input{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  margin-bottom:18px;
+}
+
+.welfare-card button{
+  width:100%;
+  padding:12px;
+  background:var(--accent);
+  border:none;
+  border-radius:8px;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.status{
+  margin-top:16px;
+  font-size:14px;
+  color:orange;
+}
+
+
+/* ===== FRAUD MONITORING PANEL ===== */
+.health-panel {
+  margin: 30px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: var(--card);
+}
+
+/* Grid layout */
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Individual fraud item */
+.health-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.06);
+  min-height: 52px;
+  transition: 0.25s ease;
+}
+
+/* Dark mode support */
+html.dark .health-item {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hover effect */
+.health-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 14px rgba(255, 153, 51, 0.25);
+}
+
+/* Dot indicator */
+.health-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Status text */
+.health-item strong {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Status colors */
+.green {
+  background: #2ecc71;
+}
+
+.yellow {
+  background: #f1c40f;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+/* Fraud status coloring */
+.health-item strong {
+  color: var(--text);
+}
+
+.health-item .green + strong {
+  color: #2ecc71;
+}
+
+.health-item .yellow + strong {
+  color: #f1c40f;
+}
+
+.health-item .red + strong {
+  color: #e74c3c;
+}
+
+
+.health-item:has(.yellow),
+.health-item:has(.red) {
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 rgba(255,153,51,0.4); }
+  50% { box-shadow: 0 0 16px rgba(255,153,51,0.6); }
+  100% { box-shadow: 0 0 0 rgba(255,153,51,0.4); }
+}
+
+
+/* ===== FOOTER ===== */
+footer{
+  width:100%;
+  text-align:center;
+  padding:18px;
+  font-size:13px;
+  background:#f0f0f0;
+  color:#0b3c5d;
+}
+
+html.dark footer{
+  background:#000;
+  color:#fff;
+}
+
+/* ===== ANIMATION ===== */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s forwards;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+
+

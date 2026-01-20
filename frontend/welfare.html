@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Civic Shield – Welfare</title>
+
+  <link rel="stylesheet" href="welfare.css">
+  <script>
+    (function () {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+</head>
+
+<body>
+<!-- ===== OFFLINE STATUS BAR ===== -->
+<div id="offlineBar" class="offline-bar">
+  <span>⚠ You’re offline. Some features may not work.</span>
+  <button onclick="retryConnection()">Retry</button>
+</div>
+
+<!-- ===== NAVBAR (SAME AS DASHBOARD) ===== -->
+<!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-left">
+      <img src="assets/cs3.png" class="logo">
+      <span class="brand-text">CIVIC<br>SHIELD</span>
+    </div>
+
+    <div class="nav-right">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="welfare.html" class="nav-link active">Welfare</a>
+      <a href="voting.html" class="nav-link">Voting</a>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="page-content">
+  <section class="welfare-card fade-in">
+    <h2>Welfare Distribution System</h2>
+
+    <input type="text" id="ration" placeholder="Enter Ration Card Number">
+
+    <button onclick="issueWelfare()">Verify & Issue Welfare</button>
+
+    <p class="status" id="status">Verification pending...</p>
+  </section>
+</main>
+
+
+<div class="health-panel fade-in">
+  <h3>🛡 Fraud Monitoring</h3>
+
+  <div class="health-grid">
+    <div class="health-item">
+      <span class="dot green"></span>
+      Claim Pattern
+      <strong>Normal</strong>
+    </div>
+
+    <div class="health-item">
+      <span class="dot yellow"></span>
+      Location Mismatch
+      <strong>Review</strong>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===== FOOTER (SAME AS DASHBOARD) ===== -->
+<footer>
+  © <span id="year"></span> Government of India | Civic Shield Platform<br>
+  <small>Equity • Welfare • Empowerment</small>
+</footer>
+
+<script src="network.js"></script>
+<script src="welfare.js"></script>
+<script src="auth.js"></script>
+<script>
+  checkPageAccess();
+</script>
+
+<script src="audit.js"></script>
+<script>
+  addAuditLog("PAGE_ACCESS", "Page viewed");
+</script>
+
+
+</body>
+</html>

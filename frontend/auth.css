@@ -1,0 +1,158 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
+
+/* ===== PAGE BACKGROUND (MATCH DASHBOARD) ===== */
+body{
+  height:100vh;
+  background: linear-gradient(135deg, #f5f7fa, #e9eef3);
+  overflow:hidden;
+  position:relative;
+}
+
+/* ===== CIVIC SHIELD LOGO WATERMARK ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("assets/C_S_Logo.jpg") center no-repeat;
+  background-size:510px;
+  opacity:0.06;
+  pointer-events:none;
+}
+
+/* ===== SCENE ===== */
+.scene{
+  position:relative;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:1200px;
+  z-index:1;
+}
+
+/* ===== MAIN CARD ===== */
+.card{
+  width:360px;
+  height:420px;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform 0.8s ease;
+}
+
+.card.flip{
+  transform:rotateY(180deg);
+}
+
+/* ===== CARD FACES ===== */
+.card-face{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:16px;
+  padding:35px;
+  background:#ffffff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  color:#1f1f1f;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* BACK SIDE */
+.card-back{
+  transform:rotateY(180deg);
+}
+
+/* ===== AVATAR ===== */
+.avatar{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:url("assets/C_S_Logo.jpg") center/contain no-repeat;
+  border:2px solid #ff9933;
+  margin-bottom:15px;
+}
+
+/* ===== TITLES ===== */
+h2{
+  font-size:24px;
+  color:#0b3c5d;
+  margin-bottom:8px;
+}
+
+/* ===== INPUTS ===== */
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #d0d7de;
+  outline:none;
+  font-size:14px;
+}
+
+input::placeholder{
+  color:#666;
+}
+
+/* ===== BUTTON ===== */
+button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:8px;
+  background:#ff9933;
+  color:#000;
+  font-weight:600;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#ff8800;
+}
+
+/* ===== ADMIN BUTTON ===== */
+.admin-btn{
+  background:#d32f2f;
+  color:#fff;
+}
+
+.admin-btn:hover{
+  background:#b71c1c;
+}
+
+/* ===== LINKS ===== */
+.links{
+  margin-top:18px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+}
+
+.links span{
+  cursor:pointer;
+  color:#1a73e8;
+}
+
+/* ===== SIGNUP CARD ===== */
+.signup{
+  position:absolute;
+  width:360px;
+  height:420px;
+  border-radius:16px;
+  padding:35px;
+  background:#ffffff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  color:#1f1f1f;
+}
