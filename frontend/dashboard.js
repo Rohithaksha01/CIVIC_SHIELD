@@ -506,3 +506,10 @@ document.querySelectorAll(".otp-inputs input").forEach((input, i, arr) => {
     if (input.value && arr[i + 1]) arr[i + 1].focus();
   });
 });
+
+document.querySelectorAll(".stat-card.clickable").forEach(card => {
+  card.addEventListener("click", () => {
+    const chart = card.dataset.chart;
+    window.location.href = `charts.html?type=${chart}`;
+  });
+});

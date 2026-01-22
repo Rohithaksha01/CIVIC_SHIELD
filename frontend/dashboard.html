@@ -40,6 +40,7 @@
       <a href="dashboard.html" class="nav-link active">Dashboard</a>
       <a href="welfare.html" class="nav-link">Welfare</a>
       <a href="voting.html" class="nav-link">Voting</a>
+      <a href="analytics.html" class="nav-link">Analytics</a>
 
 
       <!-- 🔔 Notifications -->
@@ -111,7 +112,7 @@
 
 
 
-<!--div class="verify-box fade-in">
+  <!--div class="verify-box fade-in">
 
   <!-- STEP 1: AADHAAR INPUT ->
   <div class="verify-step active" id="stepAadhaar">
@@ -178,43 +179,27 @@
       <p>👥 Total Citizens</p>
       <h3 id="citizens">0</h3>
     </div>
-    <div class="stat-card fade-in">
+    <div class="stat-card fade-in clickable" data-chart="welfare">
       <p>🎯 Welfare Issued</p>
       <h3 id="welfare">0</h3>
     </div>
-    <div class="stat-card fade-in">
+
+    <div class="stat-card fade-in clickable" data-chart="votes">
       <p>🗳 Votes Cast</p>
       <h3 id="votes">0</h3>
     </div>
-    <div class="stat-card fade-in">
+
+    <div class="stat-card fade-in clickable" data-chart="fraud">
       <p>⚠ Fraud Alerts</p>
       <h3 id="frauds">0</h3>
     </div>
+
   </div>
 
   <!-- ===== CHARTS ===== -->
   <div class="charts-row">
-    <div class="chart-box fade-in">
-      <h4>Welfare Distribution (Weekly)</h4>
-      <canvas id="welfareChart"></canvas>
-    </div>
+    
 
-    <div class="chart-box fade-in">
-      <h4>Voting Participation</h4>
-      <canvas id="voteChart"></canvas>
-    </div>
-  </div>
-
-  <div class="charts-row">
-    <div class="chart-box fade-in">
-      <h4>Votes Cast (Hourly)</h4>
-      <canvas id="votesChart"></canvas>
-    </div>
-
-    <div class="chart-box fade-in">
-      <h4>Fraud Alerts Breakdown</h4>
-      <canvas id="fraudChart"></canvas>
-    </div>
   </div>
 
   <!-- ===== SYSTEM HEALTH ===== -->

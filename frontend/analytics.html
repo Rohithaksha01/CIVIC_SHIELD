@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-left">
+      <img src="assets/cs3.png" class="logo">
+      <span class="brand-text">CIVIC<br>SHIELD</span>
+      <span id="liveIndicator" class="live-indicator offline">● OFFLINE</span>
+
+
+    </div>
+
+    <div class="nav-right">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="welfare.html" class="nav-link">Welfare</a>
+      <a href="voting.html" class="nav-link">Voting</a>
+      <a href="analytics.html" class="nav-link">Analytics</a>
+
+
+      <!-- 🔔 Notifications -->
+      <div class="notification-wrapper">
+        <span id="notifyBell" class="notify-bell">🔔</span>
+        <span id="notifyCount" class="notify-count">0</span>
+
+        <div id="notifyPanel" class="notify-panel">
+          <h4>Notifications</h4>
+          <ul id="notifyList"></ul>
+        </div>
+      </div>
+
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <h2 class="page-title" id="chartTitle">Analytics</h2>
+
+
+    <!-- ===== CHARTS ===== -->
+  <div class="charts-row">
+    <div class="chart-box fade-in" id="chart-welfare">
+      <h4>Welfare Distribution (Weekly)</h4>
+      <canvas id="welfareChart"></canvas>
+    </div>
+
+    <div class="chart-box fade-in" id="chart-votes">
+      <h4>Voting Participation</h4>
+      <canvas id="voteChart"></canvas>
+    </div>
+
+    <div class="chart-box fade-in" id="chart-votes-hourly">
+      <h4>Votes Cast (Hourly)</h4>
+      <canvas id="votesChart"></canvas>
+    </div>
+
+    <div class="chart-box fade-in" id="chart-fraud">
+      <h4>Fraud Alerts Breakdown</h4>
+      <canvas id="fraudChart"></canvas>
+    </div>
+
+  </div>
+
+  <!-- ✅ SAME FOOTER -->
+  <footer>
+    © <span id="year"></span> Government of India | Civic Shield Platform<br>
+    <small>Integrity • Transparency • Democracy</small>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="audit.js"></script>
+  <script src="network.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="toast.js"></script>
+
+</body>
+</html>

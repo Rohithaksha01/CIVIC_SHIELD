@@ -523,6 +523,12 @@ html.dark .global-search input {
   transform: translateY(-4px);
 }
 
+.stat-card.clickable {
+  cursor: pointer;
+}
+
+
+
 
 /* HEALTH */
 .health-panel {
