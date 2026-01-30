@@ -1,0 +1,29 @@
+/* STATS */
+.page-title{
+  margin:20px 30px;
+  font-size:26px;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+  padding:0 30px;
+}
+
+.stat-card{
+  background:var(--card);
+  padding:22px;
+  border-radius:14px;
+  border-left:5px solid var(--accent);
+  transition:.3s;
+}
+
+.stat-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 18px rgba(255,153,51,.5);
+}
+
+.stat-card.clickable {
+  cursor: pointer;
+}

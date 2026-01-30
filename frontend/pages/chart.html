@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Civic Shield – Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/offline.css">
+  <link rel="stylesheet" href="../css/notifications.css">
+  <link rel="stylesheet" href="../css/charts.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+</head>
+
+<body class="chart-page">
+
+  <nav>
+    <div class="nav-left">
+      <img src="../assets/cs3.png" class="logo">
+      <span class="brand-text">CIVIC<br>SHIELD</span>
+      <span id="liveIndicator" class="live-indicator offline">● OFFLINE</span>
+    </div>
+
+    <div class="nav-right">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="welfare.html" class="nav-link">Welfare</a>
+      <a href="voting.html" class="nav-link">Voting</a>
+      <a href="analytics.html" class="nav-link">Analytics</a>
+
+      <div class="notification-wrapper">
+        <span id="notifyBell" class="notify-bell">🔔</span>
+        <span id="notifyCount" class="notify-count">0</span>
+
+        <div id="notifyPanel" class="notify-panel">
+          <h4>Notifications</h4>
+          <ul id="notifyList"></ul>
+        </div>
+      </div>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb"></span>
+      </button>
+    </div>
+  </nav>
+
+  <h2 class="page-title" id="chartTitle">Analytics</h2>
+
+  <!-- ✅ SINGLE chart container -->
+  <div class="chart-container">
+    <canvas id="mainChart"></canvas>
+  </div>
+
+  <button onclick="history.back()" class="back-btn">← Back</button>
+
+  <footer>
+    © <span id="year"></span> Government of India | Civic Shield Platform<br>
+    <small>Integrity • Transparency • Democracy</small>
+  </footer>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/audit.js"></script>
+  <script src="../js/network.js"></script>
+  <script src="../js/toast.js"></script>
+  <script src="../js/chart-page.js"></script>
+</body>
+
+</html>

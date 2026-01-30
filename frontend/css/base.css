@@ -1,0 +1,33 @@
+:root{
+  --bg:#f4f6f9;
+  --card:#ffffff;
+  --text:#1e1e1e;
+  --nav:#ffffff;
+  --accent:#ff9933;
+}
+
+html, body {
+  min-height: auto;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x: hidden;
+}
+
+/* ✅ ONLY affect chart page, NOT navbar */
+.chart-page {
+  min-height: unset;
+  height: auto;
+}
+
+/* prevent large empty space below content */
+.chart-page::after {
+  content: "";
+  display: block;
+  height: 0;
+}

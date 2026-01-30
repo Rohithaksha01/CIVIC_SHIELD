@@ -1,0 +1,94 @@
+@media (max-width: 900px) {
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 20px;
+  }
+
+  .nav-left {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .chart-box canvas {
+    height: 200px !important;
+  }
+
+  .health-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {height: 260px;}
+
+  .hero-text {
+    left: 20px;
+    bottom: 30px;
+  }
+
+  .hero-text h1 {font-size: 24px;}
+  .hero-text p {font-size: 13px;}
+}
+
+@media (max-width: 600px) {
+  .global-search {margin: 14px;}
+
+  .global-search input {
+    font-size: 14px;
+    padding: 14px;
+  }
+
+  .search-type {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    padding: 0 14px;
+  }
+
+  .page-title {
+    margin: 16px;
+    font-size: 22px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 14px;
+  }
+
+  .toast-container {
+    right: 10px;
+    left: 10px;
+  }
+
+  .toast {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .health-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    max-width: 95%;
+    height: 260px;
+  }
+}

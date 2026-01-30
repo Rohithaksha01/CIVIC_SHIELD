@@ -1,0 +1,29 @@
+/* ===== TOAST ===== */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  min-width: 260px;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #323232;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  animation: slideIn 0.3s ease;
+}
+
+.toast.error {background:#b71c1c}
+.toast.success {background:#2e7d32}
+.toast.warning {background:#f57c00}
+
+@keyframes slideIn {
+  from {transform: translateX(120%);opacity: 0;}
+  to {transform: translateX(0);opacity: 1;}
+}

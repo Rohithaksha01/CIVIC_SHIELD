@@ -1,0 +1,47 @@
+body.chart-page {
+  min-height: auto;     /* ✅ override 100vh */
+  height: auto;
+}
+
+.chart-page {
+  min-height: unset !important;
+}
+
+.chart-page {
+  padding-bottom: 40px;
+}
+
+
+.page-title {
+  text-align: center;     /* ✅ center text */
+  margin: 20px 0 16px;    /* spacing */
+  font-weight: 700;
+}
+
+
+.chart-container {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  height: 400px;
+
+  /* ✅ CENTERING */
+  max-width: 800px;      /* controls chart width */
+  margin: 0 auto;        /* centers the chart */
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.back-btn {
+  display: block;        /* allows centering */
+  margin: 20px auto;     /* ✅ center horizontally */
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: var(--accent);
+}

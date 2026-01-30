@@ -1,0 +1,14 @@
+/* FOOTER */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 18px;
+  font-size: 13px;
+  background: #f0f0f0;
+  color: #0b3c5d;
+}
+
+html.dark footer {
+  background: #000;
+  color: #fff;
+}

@@ -1,0 +1,109 @@
+/* ================================
+   CARD SHARED STYLES
+   Welfare / Voting / Forms
+================================ */
+
+.page-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CARD ===== */
+.welfare-box {
+  width: 380px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 40, 40, 0.95),
+    rgba(20, 20, 20, 0.95)
+  );
+  padding: 30px;
+  margin: 160px;
+  border-radius: 14px;
+  text-align: center;
+
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welfare-box:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 80px rgba(250,150,50,0.50),
+    0 30px 70px rgba(0,0,0,0.75);
+}
+
+.welfare-box h2 {
+  margin-bottom: 22px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+/* ================================
+   FORM ELEMENT STYLES
+   Voting / Welfare Forms
+================================ */
+
+input,
+select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 16px;
+
+  border-radius: 6px;
+  border: none;
+
+  font-size: 15px;
+  background: #ffffff;
+  color: #000000;
+
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  box-shadow: 0 0 0 2px rgba(255,153,51,0.45);
+}
+
+/* ===== BUTTON ===== */
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 6px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: linear-gradient(
+    180deg,
+    #ffa94d,
+    #ff8c1a
+  );
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 24px rgba(255,153,51,0.6);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ===== STATUS TEXT ===== */
+.status {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}

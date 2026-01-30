@@ -1,0 +1,57 @@
+/* HERO */
+.banner{padding:30px}
+
+.slider{
+  position:relative;
+  height:460px;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.slides{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:1s;
+}
+
+.slides.active{opacity:1}
+
+.slides img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.85));
+}
+
+.hero-text{
+  position:absolute;
+  bottom:60px;
+  left:60px;
+  color:#fff;
+}
+
+.dots{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#bbb;
+  display:inline-block;
+  margin:0 5px;
+}
+
+.dot.active{
+  background:var(--accent);
+}

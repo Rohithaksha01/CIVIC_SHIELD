@@ -1,0 +1,56 @@
+/* HEALTH */
+.health-panel {
+  margin: 30px 30px 30px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.health-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.06);
+  min-height: 52px;
+}
+
+html.dark .health-item {
+  background: rgba(255,255,255,0.08);
+}
+
+.health-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.health-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.health-item strong {
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 70px;
+  text-align: right;
+}
+
+.green{background:#2ecc71}
+.yellow{background:#f1c40f}
+.blue{background:#3498db}
+.red{background:#e74c3c}
+
+/* FRAUD */
+.fraud.low strong {color:#2ecc71}
+.fraud.medium strong {color:#f1c40f}
+.fraud.high strong {color:#e74c3c}

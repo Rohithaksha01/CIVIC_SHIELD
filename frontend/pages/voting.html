@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Civic Shield – Voting</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/offline.css">
+  <link rel="stylesheet" href="../css/notifications.css">
+  <link rel="stylesheet" href="../css/voting.css">
+  <link rel="stylesheet" href="../css/verify.css">
+  <link rel="stylesheet" href="../css/stats.css">
+  <link rel="stylesheet" href="../css/toast.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+  <script>
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  </script>
+</head>
+
+<body>
+  <!-- OFFLINE BAR -->
+  <div id="offlineBar" class="offline-bar">
+    <div class="offline-left">
+      ⚠ You’re offline. Some features may not work.
+    </div>
+    <button class="offline-retry" onclick="retryConnection()">Retry</button>
+  </div>
+
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <div class="nav-left">
+      <img src="../assets/cs3.png" class="logo">
+      <span class="brand-text">CIVIC<br>SHIELD</span>
+      <span id="liveIndicator" class="live-indicator offline">● OFFLINE</span>
+    </div>
+
+    <div class="nav-right">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="welfare.html" class="nav-link">Welfare</a>
+      <a href="voting.html" class="nav-link active">Voting</a>
+      <a href="analytics.html" class="nav-link">Analytics</a>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="toggle-thumb"></span>
+      </button>
+    </div>
+  </nav>
+
+
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <div class="page-content">
+    <div class="welfare-box fade-in">
+      <h2>Secure Voting System</h2>
+
+      <input type="text" id="voterId" placeholder="Enter Voter ID">
+
+      <select id="candidate">
+        <option value="">Select Candidate</option>
+        <option value="Candidate A">Candidate A</option>
+        <option value="Candidate B">Candidate B</option>
+        <option value="Candidate C">Candidate C</option>
+      </select>
+
+      <button onclick="castVote()">Verify & Cast Vote</button>
+
+      <p class="status" id="status">Biometric verification required...</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © <span id="year"></span> Government of India | Civic Shield Platform<br>
+    <small>Free • Fair • Secure Elections</small>
+  </footer>
+
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/audit.js"></script>
+  <script src="../js/network.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/toast.js"></script>
+  <script>
+    checkPageAccess();
+  </script>
+  <script>
+    addAuditLog("PAGE_ACCESS", "Page viewed");
+  </script>
+
+
+</body>
+
+</html>

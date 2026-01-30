@@ -1,0 +1,59 @@
+.notification-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.notify-bell {
+  font-size: 20px;
+}
+
+.notify-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.notify-panel {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 300px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.notify-panel h4 {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+html.dark .notify-panel h4 {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.notify-panel ul {
+  list-style: none;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.notify-panel li {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.notify-panel li.unread {
+  background: rgba(255,153,51,0.12);
+  font-weight: 600;
+}

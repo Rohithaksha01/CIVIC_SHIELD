@@ -171,13 +171,36 @@ html.dark .toggle-thumb {
 }
 
 
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .nav-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .brand-text {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+
+
 /* ===== MAIN CONTENT ===== */
 .page-content{
   flex:1;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding: 16px;
 }
+
 
 /* ===== WELFARE CARD ===== */
 .welfare-card{
@@ -227,7 +250,7 @@ html.dark .toggle-thumb {
 
 /* ===== FRAUD MONITORING PANEL ===== */
 .health-panel {
-  margin: 30px;
+  margin: 16px;
   padding: 22px 24px;
   border-radius: 16px;
   background: var(--card);
@@ -355,3 +378,17 @@ html.dark footer{
 
 
 
+@media (max-width: 480px) {
+  .welfare-card h2 {
+    font-size: 20px;
+  }
+
+  .welfare-card button {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 11px;
+    padding: 14px;
+  }
+}

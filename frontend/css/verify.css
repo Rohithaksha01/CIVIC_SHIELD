@@ -1,0 +1,84 @@
+/* ===== VERIFICATION CARD ===== */
+.verify-box {
+  width: 380px;
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.verify-step {
+  display: none;
+}
+
+.verify-step.active {
+  display: block;
+}
+
+.verify-box label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.verify-box input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+.aadhaar-mask {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 12px 0;
+  color: var(--accent);
+}
+
+.hidden {
+  display: none;
+}
+
+.helper-text {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-bottom: 18px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0 22px;
+}
+
+.otp-inputs input {
+  width: 44px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+.bio-placeholder {
+  border: 2px dashed var(--accent);
+  padding: 28px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.bio-placeholder span {
+  font-size: 42px;
+}
+
+.bio-placeholder p {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
